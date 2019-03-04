@@ -1,4 +1,4 @@
-# Lesson 3 - Monday, February 25
+# Lesson 4 - Monday, March 4
 Curso de Aplicaciones Android con Kotlin (Básico - Intermedio) - Academia Móviles
 
 # Slides
@@ -9,7 +9,7 @@ Lesson3-UI https://docs.google.com/presentation/d/19mzDJ2zvdz36uvwM3Pc_Ep0Y5V6_X
 
 # Samples
 
-Lesson3 https://github.com/emedinaa/amoviles-basic-intermediate-advanced/archive/L3-UIEvents.zip
+Lesson4 https://github.com/emedinaa/amoviles-basic-intermediate-advanced/archive/L4-UIEvents.zip
 
 # Homework
 ...
