@@ -11,3 +11,10 @@
   Android Adapters/ ListView / RecyclerView / Kotlin
   
   Link https://docs.google.com/document/d/1wEJbeF11H6A7QZkAne3DrGftbgadKnyovGttIvegcII/edit?usp=sharing
+  
+  
+- Homework 3
+
+  Android Fragments / Adapters
+  
+  Link https://docs.google.com/document/d/133GgNyPT6bI8k9rl10w283_RCUQa20D9hnrH5LTLrVE/edit?usp=sharing
