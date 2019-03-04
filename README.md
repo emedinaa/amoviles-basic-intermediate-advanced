@@ -1,17 +1,11 @@
-# amoviles-basic-intermediate-advanced
-Curso de Aplicaciones Android con Kotlin (Básico - Intermedio- Avanzado) - Academia Móviles 
+# Homeworks
 
-# Instructor
-Eduardo José Medina Alfaro
+- Homework 1 
 
-emedinaa@gmail.com
+  Android UI / UI Events / Kotlin
+  Link https://docs.google.com/document/d/16-g_8zgP5Kh8ttUd_k9AoN6Wb1_TS4gQuPixV_owkP0/edit?usp=sharing
+  
+- Homework 2 
 
-https://github.com/emedinaa
-
-
-# Referencias 
-
-- Kotlin programming language https://kotlinlang.org/
-- Develop Android apps with Kotlin https://developer.android.com/kotlin/
-- Kotlin offical documentation https://kotlinlang.org/docs/reference/
-- CodeLabs https://codelabs.developers.google.com/
+  Android Adapters/ ListView / RecyclerView / Kotlin
+  Link https://docs.google.com/document/d/1wEJbeF11H6A7QZkAne3DrGftbgadKnyovGttIvegcII/edit?usp=sharing
