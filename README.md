@@ -1,4 +1,4 @@
-# amoviles-basic-intermediate-advanced
+# Lesson 6 - Monday, March 11
 Curso de Aplicaciones Android con Kotlin (Básico - Intermedio- Avanzado) - Academia Móviles 
 
 # Instructor
