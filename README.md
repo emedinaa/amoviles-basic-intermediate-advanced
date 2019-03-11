@@ -7,7 +7,7 @@ Lesson6-List&Adapter https://docs.google.com/presentation/d/1aA6tzgdWVRNcv-PXYxF
 
 # Samples
 
-Lesson6 https://github.com/emedinaa/amoviles-basic-intermediate-advanced/tree/L6-RecyclerViewAdapters/archive/L6-RecyclerViewAdapters.zip
+Lesson6 https://github.com/emedinaa/amoviles-basic-intermediate-advanced/archive/L6-RecyclerViewAdapters.zip
 
 # References
 
