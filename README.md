@@ -5,6 +5,8 @@ Curso de Aplicaciones Android con Kotlin (Básico - Intermedio- Avanzado) - Acad
 
 Lesson6-List&Adapter https://docs.google.com/presentation/d/1aA6tzgdWVRNcv-PXYxFY47jdaJLQpt5LVMZuxmj4gdY/edit?usp=sharing
 
+Activities https://docs.google.com/presentation/d/1uhTfdRihh-LUa-Id541RM8FdhiC23XUEiyGTA1gTUTY/edit?usp=sharing
+
 # Samples
 
 Lesson6 https://github.com/emedinaa/amoviles-basic-intermediate-advanced/archive/L6-RecyclerViewAdapters.zip
