@@ -1,27 +1,21 @@
-# Lesson 6 - Monday, March 11
+# Lesson 7 - Thursday, March 14
 Curso de Aplicaciones Android con Kotlin (Básico - Intermedio- Avanzado) - Academia Móviles 
 
 # Slides
 
-Lesson6-List&Adapter https://docs.google.com/presentation/d/1aA6tzgdWVRNcv-PXYxFY47jdaJLQpt5LVMZuxmj4gdY/edit?usp=sharing
+Lesson7-Fragments https://docs.google.com/presentation/d/1C0dRsJ5y7HYesuPGiNTpLl45AZlNm_v671WQ9LZ_j18/edit?usp=sharing
 
 # Samples
 
-Lesson6 https://github.com/emedinaa/amoviles-basic-intermediate-advanced/archive/L6-RecyclerViewAdapters.zip
+Lesson7
 
 # References
 
-Adapter https://developer.android.com/reference/android/widget/Adapter.html
+- Support different screen sizes  https://developer.android.com/training/multiscreen/screensizes?hl=es-419
 
-ListView https://developer.android.com/guide/topics/ui/layout/listview.html
+- Fragment https://developer.android.com/reference/android/app/Fragment.html
 
-GridView https://developer.android.com/guide/topics/ui/layout/gridview.html
+- Developer Guides : Fragments https://developer.android.com/guide/components/fragments.html
 
-RecyclerView https://developer.android.com/guide/topics/ui/layout/recyclerview.html
-
-Creating List and Cards https://developer.android.com/training/material/lists-cards.html
-
-RecyclerView https://developer.android.com/reference/android/support/v7/widget/RecyclerView.html
-
-Android Developers Fundamentals Course - Create a RecyclerView https://google-developer-training.gitbooks.io/android-developer-fundamentals-course-practicals/content/en/Unit%202/44_p_create_a_recycler_view.html
+- Building a Dynamic UI with Fragments https://developer.android.com/training/basics/fragments/index.html
 
