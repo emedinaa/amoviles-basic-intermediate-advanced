@@ -1,4 +1,4 @@
-# Lesson 7 - Thursday, March 14 / Monday March 18
+# Lesson 7 - Thursday, March 14 / Monday, March 18
 Curso de Aplicaciones Android con Kotlin (Básico - Intermedio- Avanzado) - Academia Móviles 
 
 # Slides
