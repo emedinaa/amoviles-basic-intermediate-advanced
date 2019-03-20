@@ -7,9 +7,8 @@ Lesson Navigation https://docs.google.com/presentation/d/1C0dRsJ5y7HYesuPGiNTpLl
 
 # Samples
 
-Lesson 
+Lesson https://github.com/emedinaa/amoviles-basic-intermediate-advanced/archive/L8-Navigation.zip
 
-Lesson7
 
 # References
 
@@ -21,3 +20,14 @@ Lesson7
 
 - Building a Dynamic UI with Fragments https://developer.android.com/training/basics/fragments/index.html
 
+- Material Design https://material.io/design/components/bottom-navigation.html#behavior
+
+- Activity https://developer.android.com/training/basics/firstapp/starting-activity?hl=es-419
+
+- Bottom Navigation https://material.io/develop/android/components/bottom-navigation-view/
+
+- View Pager https://developer.android.com/training/animation/screen-slide
+
+- Navigation drawer https://developer.android.com/training/implementing-navigation/nav-drawer?hl=es-419
+
+- Swipe & Tabs https://developer.android.com/training/implementing-navigation/lateral?hl=es-419
