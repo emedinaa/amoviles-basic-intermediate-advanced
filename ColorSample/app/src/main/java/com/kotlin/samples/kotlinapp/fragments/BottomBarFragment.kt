@@ -1,6 +1,8 @@
 package com.kotlin.samples.kotlinapp.fragments
 
 
+import android.content.Context
+import android.graphics.Color
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
@@ -8,6 +10,8 @@ import android.view.View
 import android.view.ViewGroup
 
 import com.kotlin.samples.kotlinapp.R
+import com.kotlin.samples.kotlinapp.listeners.ColorListener
+import kotlinx.android.synthetic.main.fragment_bottom_bar.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -24,6 +28,7 @@ class BottomBarFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+    private var listener: ColorListener?=null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,20 +44,34 @@ class BottomBarFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_bottom_bar, container, false)
     }
 
-    /*override fun onAttach(context: Context) {
+    override fun onAttach(context: Context) {
       super.onAttach(context)
-      if (context is FragmentS3.OnFragmentInteractionListener) {
+      if (context is ColorListener) {
           listener = context
       } else {
-          throw RuntimeException(context.toString() + " must implement OnFragmentInteractionListener")
+          throw RuntimeException(context.toString() + " must implement ColorListener")
       }
   }
 
   override fun onDetach() {
       super.onDetach()
       listener = null
-  }*/
+  }
 
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        btnBox0.setOnClickListener {
+            listener?.sendColor(0)
+        }
+
+        btnBox1.setOnClickListener {
+            listener?.sendColor(1)
+        }
+
+        btnBox2.setOnClickListener {
+            listener?.sendColor(2)
+        }
+    }
 
     companion object {
         /**

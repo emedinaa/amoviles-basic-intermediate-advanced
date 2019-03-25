@@ -2,6 +2,7 @@ package com.kotlin.samples.kotlinapp.fragments
 
 
 import android.content.Context
+import android.graphics.Color
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
@@ -9,6 +10,8 @@ import android.view.View
 import android.view.ViewGroup
 
 import com.kotlin.samples.kotlinapp.R
+import com.kotlin.samples.kotlinapp.listeners.ColorListener
+import kotlinx.android.synthetic.main.fragment_box.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -25,6 +28,7 @@ class BoxFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+    private var listener:ColorListener?=null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,20 +44,31 @@ class BoxFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_box, container, false)
     }
 
-    /*override fun onAttach(context: Context) {
+    override fun onAttach(context: Context) {
         super.onAttach(context)
-        if (context is FragmentS3.OnFragmentInteractionListener) {
+        if (context is ColorListener) {
             listener = context
         } else {
-            throw RuntimeException(context.toString() + " must implement OnFragmentInteractionListener")
+            throw RuntimeException(context.toString() + " must implement ColorListener")
         }
     }
 
     override fun onDetach() {
         super.onDetach()
         listener = null
-    }*/
+    }
 
+    fun paintColor(position:Int){
+        var color:Int?=null
+        when(position){
+            0 -> color= Color.parseColor("#CC2EFA")
+            1 -> color= Color.parseColor("#FE2E2E")
+            2 -> color= Color.parseColor("#F7FE2E")
+        }
+        color?.let {
+            flayBox.setBackgroundColor(it)
+        }
+    }
 
     companion object {
         /**

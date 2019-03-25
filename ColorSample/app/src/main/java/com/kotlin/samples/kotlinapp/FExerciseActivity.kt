@@ -5,8 +5,9 @@ import android.os.Bundle
 import android.support.v4.app.FragmentManager
 import com.kotlin.samples.kotlinapp.fragments.BottomBarFragment
 import com.kotlin.samples.kotlinapp.fragments.BoxFragment
+import com.kotlin.samples.kotlinapp.listeners.ColorListener
 
-class FExerciseActivity : AppCompatActivity() {
+class FExerciseActivity : AppCompatActivity(),ColorListener {
 
     private lateinit var fragmentManager: FragmentManager
     private var  bottomBarFragment: BottomBarFragment?=null
@@ -25,5 +26,9 @@ class FExerciseActivity : AppCompatActivity() {
         if (fragmentManager.findFragmentById(R.id.fragBox) is BoxFragment) {
             boxFragment= fragmentManager.findFragmentById(R.id.fragBox) as BoxFragment
         }
+    }
+
+    override fun sendColor(position: Int) {
+        boxFragment?.paintColor(position)
     }
 }
