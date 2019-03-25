@@ -7,8 +7,12 @@ import com.kotlin.samples.kotlinapp.R
 import com.kotlin.samples.kotlinapp.sample.model.Note
 import com.kotlin.samples.kotlinapp.sample.storage.NoteDatabase
 import com.kotlin.samples.kotlinapp.sample.storage.NoteRepository
+import kotlinx.android.synthetic.main.activity_dbbasic.*
+import java.lang.StringBuilder
 
 class DBBasicActivity : AppCompatActivity() {
+
+    private var sb:StringBuilder= StringBuilder("")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,27 +28,29 @@ class DBBasicActivity : AppCompatActivity() {
     }
 
     private fun db(){
-        val noteRepository= NoteRepository(NoteDatabase(this))
+        val noteRepository= BNoteRepository(BNoteDatabase(this))
 
-        //agregar paradero
-        //noteRepository.addNote(Note(null,"Nota 1", "Nota 1"))
-        //noteRepository.addNote(Note(null,"Nota 2", "Nota 2"))
+        //agregar notas
+        noteRepository.addNote(BNote(null,"Nota 1", "Nota 1"))
+        noteRepository.addNote(BNote(null,"Nota 2", "Nota 2"))
 
 
-        //listar paraderos
-        val notes:List<Note> = noteRepository.notes()
+        //listar notas
+        val notes:List<BNote> = noteRepository.notes()
         notes.forEach {
             Log.v("CONSOLE", "note $it")
+            sb.appendln("note $it")
         }
+        textView.text= sb.toString()
 
 
-        //eliminar paradero
+        //eliminar nota
         //noteRepository.deleteNote()
         /*val dNote= Note(4,"Nota 2","Nota 2")
         val row= noteRepository.deleteNote(dNote)
         Log.v("CONSOLE", "row $row")*/
 
-        //editar paradero
+        //editar nota
         /*val uNote= Note(3,"Nota 3","Desc Nota 3")
         val row=noteRepository.updateNote(uNote)
         Log.v("CONSOLE", "row update $row")*/
