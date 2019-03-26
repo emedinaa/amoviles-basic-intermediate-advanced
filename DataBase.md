@@ -1,95 +1,180 @@
 
 
-## SharedPreferences
+## Data Base Sqlite
 
-Te permite almacenar información del tipo <key, value>, donde la única forma de que se pierda es borrando la cache de la app o eliminando la aplicación.
+Vamos a construir una base de datos local llamada DBNote y tendremos una table llamada tb_note
 
-Para instanciar el SP , realizamos lo siguiente 
+- Lo primero es crear la entidad
 
-```java
-   sharedPreferences=getSharedPreferences("com.amoviles.sharedpref", Context.MODE_PRIVATE);
-```
-Donde el primer parámetro es el nombre que vamos a usar para este SP y luego , el segundo , es para definir el nivel de privacidad :
+```kotlin
+class BNote(val id:Int?, val name:String?,val description:String?) {
 
-```java
-  Context.MODE_PRIVATE //Privado y solo se puede acceder desde la app
-  Context.MODE_APPEND //Compartido para el resto de apps
-```
-Para poder almacenar valores en el SP, primero debemos tener una instancia del SharedPreferences.Editor
-
-```java
-  private SharedPreferences.Editor sharedPreferencesEditor;
-  sharedPreferencesEditor= sharedPreferences.edit();
-```
-Luego, si queremos guadar un valor usamos el método "putString(key, value)" para almacenar un String y con "apply" concluimos la operación. 
-
-```java
-  private void saveStringKey(String key, String value){
-  
-        sharedPreferencesEditor.putString(key, value);
-        sharedPreferencesEditor.apply();
-        //sharedPreferencesEditor.commit();
-        
+    override fun toString(): String {
+        return "BNote(id=$id, name=$name, description=$description)"
     }
- ...
- 
- saveStringKey("USERNAME","edu");
+}
 ```
-Despúes de guardar , lo siguiente es poder obtener los valores almacenados. Tener presente que requerimos del
+Luego una clase que gestione la creación de la base de datos y las tablas.
 
-```java
- private void retrieveStringValue(String key){
-        String value= sharedPreferences.getString(key,"Valor eliminado");
-        //log(String.format("retrieve key : %s , value : %s",key,value));
+```kotlin
+class BNoteDatabase(context: Context): SQLiteOpenHelper(context, DATABASE_NAME,null,DATABASE_VERSION)  {
+
+    companion object {
+        const val DATABASE_VERSION:Int=1
+        const val DATABASE_NAME:String="BDBasicNote"
+
+        //note table
+        const val BNOTE_TABLE_NAME="tb_notes"
+        const val BNOTE_KEY_ID:String= "id"
+        const val BNOTE_KEY_NAME:String= "name"
+        const val BNOTE_KEY_DESC:String= "desc"
     }
-  ...
-  retrieveStringValue("USERNAME");
+
+    override fun onCreate(db: SQLiteDatabase?) {
+        val sql = ("CREATE TABLE ${BNOTE_TABLE_NAME} ("
+                + "${BNOTE_KEY_ID} INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL , ${BNOTE_KEY_NAME}  TEXT,"
+                + "${BNOTE_KEY_DESC} TEXT )")
+
+        Log.v("CONSOLE","sql $sql")
+        db?.execSQL(sql)
+    }
+
+    override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
+        val sql = "DROP TABLE IF EXISTS ${BNOTE_TABLE_NAME}"
+        db?.execSQL(sql)
+    }
+}
+```
+Despues de tener la entidad y la clase SqliteOpenHelper , vamos a construir un clase que maneje las operación en esa tabla (CRUD)
+
+```kotlin
+class BNoteRepository(val noteDatabase: BNoteDatabase) {
+
+    fun notes():List<BNote>{
+        val sqliteDatabase= noteDatabase.readableDatabase //modo lectura
+
+        val notes:MutableList<BNote> = mutableListOf()
+        val sql= "SELECT  * FROM ${BNoteDatabase.BNOTE_TABLE_NAME}"
+        val cursor= sqliteDatabase.rawQuery(sql,null)
+        if(cursor.moveToFirst()){
+            do{
+                val note= BNote(cursor.getString(0).toInt(),
+                        cursor.getString(1),
+                        cursor.getString(2))
+                notes.add(note)
+            }while(cursor.moveToNext())
+        }
+        sqliteDatabase.close()
+        return notes.toList()
+    }
+
+    fun addNote(note:BNote){
+        val sqliteDatabase= noteDatabase.writableDatabase //modo escritura
+
+        val contentValues= ContentValues()
+        contentValues.put(BNoteDatabase.BNOTE_KEY_NAME,note.name)
+        contentValues.put(BNoteDatabase.BNOTE_KEY_DESC,note.description)
+
+        sqliteDatabase.insert(BNoteDatabase.BNOTE_TABLE_NAME,null,contentValues)
+        sqliteDatabase.close()
+    }
+}
+```
+En esta clase tendremos las operaciones : Listar , insertar, borrar, actualizar.
+
+Listar los elementos de una tabla
+```kotlin
+  fun notes():List<Note>{
+        val sqliteDatabase= noteDatabase.readableDatabase //modo lectura
+
+        val notes:MutableList<Note> = mutableListOf()
+        val sql= "SELECT  * FROM ${NoteTable.NAME}"
+        val cursor= sqliteDatabase.rawQuery(sql,null)
+        if(cursor.moveToFirst()){
+            do{
+                val note= Note(cursor.getString(0).toInt(),
+                        cursor.getString(1),
+                        cursor.getString(2))
+                notes.add(note)
+            }while(cursor.moveToNext())
+        }
+        sqliteDatabase.close()
+        return notes.toList()
+    }
+```
+Agregar un registro
+
+```kotlin
+   fun addNote(note:Note){
+        val sqliteDatabase= noteDatabase.writableDatabase //modo escritura
+
+        val contentValues=ContentValues()
+        contentValues.put(NoteTable.KEY_NAME,note.name)
+        contentValues.put(NoteTable.KEY_DESC,note.description)
+
+        sqliteDatabase.insert(NoteTable.NAME,null,contentValues)
+        sqliteDatabase.close()
+    }
 ````
 
-Otra opción que disponemos , es eliminar un elemento del SP o limpiar todo el SP con todos los elementos almacenados.
+Eliminar un registro
 
-Si queremos eliminar solo un elemento, necesitamos el Key
-
-```java
-  sharedPreferencesEditor.remove(key);
-  sharedPreferencesEditor.apply();
-```
-
-Pero , si lo que necesitamos es borrar o limpiar todo el SP
-
-```java
- private void clear(){
-        
-        //sharedPreferencesEditor.remove(key);
-        sharedPreferencesEditor.clear();
-        sharedPreferencesEditor.apply();
+```kotlin
+    fun deleteNote(note:Note):Int{
+        val sqliteDatabase= noteDatabase.writableDatabase //modo escritura
+        val row= sqliteDatabase.delete(NoteTable.NAME,
+                "${NoteTable.KEY_ID}=?", arrayOf(note.id.toString()))
+        sqliteDatabase.close()
+        return row
     }
-```
+````
 
-- Inicializar SharedPreferences
+Editar un registro
 
-```java
-Context context = getActivity();
-SharedPreferences sharedPref = context.getSharedPreferences(
-        getString(R.string.preference_file_key), Context.MODE_PRIVATE);
-```
+```kotlin
+    fun updateNote(note:Note):Int{
+        val sqliteDatabase= noteDatabase.writableDatabase //modo escritura
+        val contentValues=ContentValues()
+        contentValues.put(NoteTable.KEY_NAME,note.name)
+        contentValues.put(NoteTable.KEY_DESC,note.description)
 
-- Guardar un valor
+        val row= sqliteDatabase.update(NoteTable.NAME,contentValues,
+                "${NoteTable.KEY_ID}=?", arrayOf(note.id.toString()))
+        sqliteDatabase.close()
+        return row
+    }
+````
 
-```java
-SharedPreferences sharedPref = getActivity().getPreferences(Context.MODE_PRIVATE);
-SharedPreferences.Editor editor = sharedPref.edit();
-editor.putInt(getString(R.string.saved_high_score_key), newHighScore);
-editor.commit();
-```
+- Implementación
 
-- Obtener un valor
+```kotlin
+    val noteRepository= BNoteRepository(BNoteDatabase(this))
 
-```java
-SharedPreferences sharedPref = getActivity().getPreferences(Context.MODE_PRIVATE);
-int defaultValue = getResources().getInteger(R.integer.saved_high_score_default_key);
-int highScore = sharedPref.getInt(getString(R.string.saved_high_score_key), defaultValue);
-```
+        //agregar notas
+        noteRepository.addNote(BNote(null,"Nota 1", "Nota 1"))
+        noteRepository.addNote(BNote(null,"Nota 2", "Nota 2"))
+
+
+        //listar notas
+        val notes:List<BNote> = noteRepository.notes()
+        notes.forEach {
+            Log.v("CONSOLE", "note $it")
+            sb.appendln("note $it")
+        }
+        textView.text= sb.toString()
+
+
+        //eliminar nota
+        //noteRepository.deleteNote()
+        /*val dNote= Note(4,"Nota 2","Nota 2")
+        val row= noteRepository.deleteNote(dNote)
+        Log.v("CONSOLE", "row $row")*/
+
+        //editar nota
+        /*val uNote= Note(3,"Nota 3","Desc Nota 3")
+        val row=noteRepository.updateNote(uNote)
+        Log.v("CONSOLE", "row update $row")*/
+````
 
 ## Resources 
 
