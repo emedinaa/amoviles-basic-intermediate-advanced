@@ -1,4 +1,4 @@
-# Lesson 9 - Monday,  March 25
+# Lesson 9 - Monday,  March 25 / Wednesday March 27
 Curso de Aplicaciones Android con Kotlin (Básico - Intermedio- Avanzado) - Academia Móviles 
 
 # Slides
