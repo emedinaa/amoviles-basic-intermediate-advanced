@@ -1,4 +1,4 @@
-# Lesson 11 - Monday,  April 3
+# Lesson 11 - Wednesday,  April 3
 Curso de Aplicaciones Android con Kotlin (Básico - Intermedio- Avanzado) - Academia Móviles 
 
 # Slides
