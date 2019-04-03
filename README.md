@@ -1,33 +1,96 @@
-# Lesson 9 - Monday,  March 25 / Wednesday March 27
+# Lesson 9 - Monday,  April 2
 Curso de Aplicaciones Android con Kotlin (Básico - Intermedio- Avanzado) - Academia Móviles 
 
 # Slides
 
-Lesson Navigation https://docs.google.com/presentation/d/14voZIOVSiHzuG_z0K1p1Ufu811I03HH8QpHF9CoZ6JE/edit?usp=sharing
+BackendLess https://docs.google.com/document/d/15Y9tZn190KiAnG_JL_GyYLxDj-UKpVINs1qfsKJWOY4/edit?usp=sharing
 
 # Samples
 
-Lesson https://github.com/emedinaa/amoviles-basic-intermediate-advanced/archive/L9-StorageI.zip
+Lesson https://github.com/emedinaa/amoviles-basic-intermediate-advanced/archive/L10-StorageII.zip
 
 
 # References
 
-- Support different screen sizes  https://developer.android.com/training/multiscreen/screensizes?hl=es-419
 
-- Fragment https://developer.android.com/reference/android/app/Fragment.html
+- Swipe https://developer.android.com/training/swipe/add-swipe-interface
 
-- Developer Guides : Fragments https://developer.android.com/guide/components/fragments.html
+- Floating Action Button https://developer.android.com/guide/topics/ui/floating-action-button
 
-- Building a Dynamic UI with Fragments https://developer.android.com/training/basics/fragments/index.html
+- Material Icons https://material.io/tools/icons/?style=baseline
 
-- Material Design https://material.io/design/components/bottom-navigation.html#behavior
+- Connecting to the Network https://developer.android.com/training/basics/network-ops/connecting.html
 
-- Activity https://developer.android.com/training/basics/firstapp/starting-activity?hl=es-419
+- Transmitting Network Data Using Volley https://developer.android.com/training/volley/index.html
 
-- Bottom Navigation https://material.io/develop/android/components/bottom-navigation-view/
+- Retrofit http://square.github.io/retrofit/
 
-- View Pager https://developer.android.com/training/animation/screen-slide
+- Retrofit 2 tutoriales https://futurestud.io/
 
-- Navigation drawer https://developer.android.com/training/implementing-navigation/nav-drawer?hl=es-419
+- HeaderMap
 
-- Swipe & Tabs https://developer.android.com/training/implementing-navigation/lateral?hl=es-419
+https://futurestud.io/tutorials/retrofit-2-dynamic-request-headers-with-headermap
+
+- GSON Annotations
+
+http://www.javacreed.com/gson-annotations-example/
+
+ - Principios S.O.L.I.D https://academy.realm.io/posts/learning-path-solid-principles-for-android/
+
+ - Android Architecture Blueprints https://github.com/googlesamples/android-architecture
+
+ - MVP Pattern (Microsoft) https://msdn.microsoft.com/en-us/library/ff649571.aspx
+
+ - GUI Architectures (Martin Fowler) https://martinfowler.com/eaaDev/uiArchs.html
+
+ - MVC, MVP , MVVM (Realm) https://academy.realm.io/posts/eric-maxwell-mvc-mvp-and-mvvm-on-android/
+
+ - Ejemplo MVP
+ https://github.com/emedinaa/android-mvp
+ 
+ - Clean Architecture https://docs.google.com/presentation/d/1Eg2V_0j0UO1V3gvYBMYomsMjS9cxD-p-CldPB68ZQxs/edit?usp=sharing
+ 
+ - Http Status https://httpstatuses.com/
+ 
+ - Http methods https://restfulapi.net/http-methods/## Resources 
+
+- Swipe https://developer.android.com/training/swipe/add-swipe-interface
+
+- Floating Action Button https://developer.android.com/guide/topics/ui/floating-action-button
+
+- Material Icons https://material.io/tools/icons/?style=baseline
+
+- Connecting to the Network https://developer.android.com/training/basics/network-ops/connecting.html
+
+- Transmitting Network Data Using Volley https://developer.android.com/training/volley/index.html
+
+- Retrofit http://square.github.io/retrofit/
+
+- Retrofit 2 tutoriales https://futurestud.io/
+
+- HeaderMap
+
+https://futurestud.io/tutorials/retrofit-2-dynamic-request-headers-with-headermap
+
+- GSON Annotations
+
+http://www.javacreed.com/gson-annotations-example/
+
+ - Principios S.O.L.I.D https://academy.realm.io/posts/learning-path-solid-principles-for-android/
+
+ - Android Architecture Blueprints https://github.com/googlesamples/android-architecture
+
+ - MVP Pattern (Microsoft) https://msdn.microsoft.com/en-us/library/ff649571.aspx
+
+ - GUI Architectures (Martin Fowler) https://martinfowler.com/eaaDev/uiArchs.html
+
+ - MVC, MVP , MVVM (Realm) https://academy.realm.io/posts/eric-maxwell-mvc-mvp-and-mvvm-on-android/
+
+ - Ejemplo MVP
+ https://github.com/emedinaa/android-mvp
+ 
+ - Clean Architecture https://docs.google.com/presentation/d/1Eg2V_0j0UO1V3gvYBMYomsMjS9cxD-p-CldPB68ZQxs/edit?usp=sharing
+ 
+ - Http Status https://httpstatuses.com/
+ 
+ - Http methods https://restfulapi.net/http-methods/
