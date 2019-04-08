@@ -1,0 +1,79 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+// Creates a variable called keystorePropertiesFile, and initializes it to the
+// keystore.properties file.
+def keystorePropertiesFile = rootProject.file("app.properties")
+
+// Initializes a new Properties() object called keystoreProperties.
+def keystoreProperties = new Properties()
+
+// Loads the keystore.properties file into the keystoreProperties object.
+keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion//28
+    defaultConfig {
+        applicationId "com.kotlin.samples.kotlinapp"
+        minSdkVersion rootProject.ext.minSdkVersion//15
+        targetSdkVersion rootProject.ext.targetSdkVersion//28
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled true //https://developer.android.com/studio/build/multidex?hl=es-419
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+
+        debug {
+            buildConfigField("String", "DOMAIN", keystoreProperties['devDomainPath'])
+            buildConfigField("String", "IMAGESPATH", keystoreProperties['imagesPath'])
+        }
+
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField("String", "DOMAIN", keystoreProperties['domainPath'])
+            buildConfigField("String", "IMAGESPATH", keystoreProperties['imagesPath'])
+        }
+    }
+
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "com.android.support:appcompat-v7:$rootProject.supportLibraryVersion"
+    implementation "com.android.support:recyclerview-v7:$rootProject.supportLibraryVersion"
+    implementation "com.android.support:cardview-v7:$rootProject.supportLibraryVersion"
+    implementation "com.android.support.constraint:constraint-layout:$rootProject.constraintLayoutVersion"
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    testImplementation "junit:junit:$rootProject.junitVersion"
+    androidTestImplementation "com.android.support.test:runner:$rootProject.runnerVersion"
+    androidTestImplementation "com.android.support.test.espresso:espresso-core:$rootProject.espressoVersion"
+
+    //multidex
+    implementation 'com.android.support:multidex:1.0.3'
+
+    //Retrofit https://github.com/square/retrofit
+    implementation "com.squareup.retrofit2:retrofit:$rootProject.retrofit2"
+
+    //Gson https://github.com/google/gson
+
+    //implementation 'com.google.code.gson:gson:2.8.0'
+    implementation "com.google.code.gson:gson:$rootProject.gson"
+    implementation "com.squareup.retrofit2:converter-gson:$rootProject.gson"
+    //implementation "com.squareup.picasso:picasso:$rootProject.picasso"
+
+    //Interceptor
+    implementation "com.squareup.okhttp3:logging-interceptor:$rootProject.okhttp3"
+    implementation "io.socket:socket.io-client:$rootProject.socketio"
+
+    implementation project(':core')
+}
