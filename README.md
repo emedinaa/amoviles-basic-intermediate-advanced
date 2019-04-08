@@ -2,8 +2,11 @@
 
  - Google Play
  
+ https://github.com/emedinaa/amoviles-basic-intermediate-advanced/blob/L12-Websockets/GooglePlay/README.md
+ 
  - Websockets
  
+ https://github.com/emedinaa/amoviles-basic-intermediate-advanced/blob/L12-Websockets/WebSockets/README.md
 
 ## Lesson
 
